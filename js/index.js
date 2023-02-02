@@ -28,16 +28,30 @@ function isCollide(snake) {
     // If you bump into yourself 
     for (let i = 1; i < snakeArr.length; i++) {
         if(snake[i].x === snake[0].x && snake[i].y === snake[0].y){
+            //Change
+            storeScore(userName, score);
             return true;
         }
     }
     // If you bump into the wall
     if(snake[0].x >= 18 || snake[0].x <=0 || snake[0].y >= 18 || snake[0].y <=0){
+        //Change
+        storeScore(userName, score);
         return true;
     }
         
     return false;
 }
+
+//Change
+function storeScore(name, currentScore) {
+  let scores = JSON.parse(localStorage.getItem("scores")) || {};
+  let userScores = scores[name] || [];
+  userScores.push(currentScore);
+  scores[name] = userScores;
+  localStorage.setItem("scores", JSON.stringify(scores));
+}
+
 
 function gameEngine(){
     // Part 1: Updating the snake array & Food
