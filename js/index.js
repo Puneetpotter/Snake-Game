@@ -28,13 +28,11 @@ function isCollide(snake) {
     // If you bump into yourself 
     for (let i = 1; i < snakeArr.length; i++) {
         if(snake[i].x === snake[0].x && snake[i].y === snake[0].y){
-            
             return true;
         }
     }
     // If you bump into the wall
     if(snake[0].x >= 18 || snake[0].x <=0 || snake[0].y >= 18 || snake[0].y <=0){
-        
         return true;
     }
         
@@ -42,11 +40,11 @@ function isCollide(snake) {
 }
 
 //Change
-function storeScore(name, currentScore) {
+function storeScore(currentScore) {
   let scores = JSON.parse(localStorage.getItem("scores")) || {};
-  let userScores = scores[name] || [];
-  userScores.push(currentScore);
-  scores[name] = userScores;
+//  let userScores = scores[name] || [];
+//  userScores.push(currentScore);
+//  scores[name] = userScores;
   localStorage.setItem("scores", JSON.stringify(scores));
 }
 
@@ -58,7 +56,7 @@ function gameEngine(){
         musicSound.pause();
         inputDir =  {x: 0, y: 0}; 
         //Change
-        storeScore(userName, score);
+        storeScore(score);
         alert("Game Over. Press any key to play again!");
         snakeArr = [{x: 13, y: 15}];
         musicSound.play();
