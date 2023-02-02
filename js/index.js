@@ -57,6 +57,11 @@ function gameEngine(){
         inputDir =  {x: 0, y: 0}; 
         //Change
         storeScore(userName, score);
+        //Change
+        inputDir = {x: 0, y: 0};
+        speed = 19;
+        score = 0;
+        snakeArr = [{x: 13, y: 15}];
         alert("Game Over. Press any key to play again!");
         snakeArr = [{x: 13, y: 15}];
         musicSound.play();
