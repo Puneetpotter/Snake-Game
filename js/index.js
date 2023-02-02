@@ -60,17 +60,16 @@ function storeScore(name, currentScore) {
 function gameEngine(){
     // Part 1: Updating the snake array & Food
     if(isCollide(snakeArr)){
-    gameOverSound.play();
-    musicSound.pause();
-    inputDir =  {x: 0, y: 0}; 
-    storeScore(score);
-    let result = alert("Game Over. Press any key to play again!");
-    if (result) {
+        gameOverSound.play();
+        musicSound.pause();
+        inputDir =  {x: 0, y: 0}; 
+        //Change
+        storeScore(userName, score);
+        alert("Game Over. Press any key to play again!");
         snakeArr = [{x: 13, y: 15}];
         musicSound.play();
         score = 0; 
     }
-}
 
 
     // If you have eaten the food, increment the score and regenerate the food
